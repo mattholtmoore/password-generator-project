@@ -24,6 +24,6 @@ The app provides a numeric range that allows for them to select a number of char
 ***
 
 ## Visuals
-![passwordgenerator](./assets/images/portfolioscreencap.png "password generator")
-***
+![passwordgenerator](./assets/images/passwordgenerator.png "password generator")
+
  
