@@ -110,7 +110,7 @@ function generatePassword() {
   var choiceFlag = false;
   var checkedFlag = false;
 
-  // Given the provided numeric range, password must be >= 8 and <= 128. Use while loop and set up an alert to notify user of system set parameters.  
+  // Given the provided numeric range, password must be >= 8 and <= 128. Loop through prompted question until necessary conditions are satisfied (aka password isn’t too long/short and a numeric character has been entered) and set up an alert to notify user of system set parameters.  
   while (!lengthFlag) {
     var passwordLength = parseInt(
       prompt("How many characters would you like your password to have?")
@@ -130,9 +130,9 @@ function generatePassword() {
     }
   }
 
-  // Use while loop conditional expression - choiceFlag for character set.
+  // // Loop through prompting questions until user preferences are satisfied and at least one character type has been selected.
   while (!choiceFlag) {
-    // 
+    // Confirms to be executed (lowercase, uppercase, numbers, special characters)
     var confirmLowerCase = confirm("Would you like to include lowercase characters? Click OK to confirm.");
     if (confirmLowerCase) {
       choiceFlag = true;
@@ -162,11 +162,11 @@ function generatePassword() {
 
   }
 
-  // Use while loop conditional expression - checkedFlag for length.
   while (!checkedFlag) {
     for (var i = 0; i < passwordLength; i++) {
       var random = Math.floor(Math.random() * availableChars.length);
       var randomChar = availableChars[random];
+      // endResult = endResult + randomChar;
       endResult += randomChar;
     }
     var checked = checkPassword(endResult, confirmLowerCase, confirmUpperCase, confirmNumbers, confirmSpecialChars);
