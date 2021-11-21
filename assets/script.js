@@ -104,13 +104,12 @@ var specialChars = [
 
 function generatePassword() {
 
+  var choice = [];
+  var endResult = [];
+
   var passwordLength = parseInt(
     prompt("How many characters would you like your password to have?"), 10
   );
-
-  if (!passwordLength) {
-    alert("Please insert a number.")
-  }
 
   if (passwordLength >= 8 && passwordLength <= 128) {
     alert("You have selected to have " + passwordLength + " characters for your password length.");
@@ -124,33 +123,30 @@ function generatePassword() {
     alert("A character other than a number was entered. Please choose a numeric character within provided range to continue.");
   }
 
-  var personsChoice = [];
-  var endResult = [];
-
-  var addLowerCase = confirm("Would you like to include lowercase characters? Click OK to confirm.");
-  if (addLowerCase) {
-    personsChoice = personsChoice.concat(lowerCase)
+  var confirmLowerCase = confirm("Would you like to include lowercase characters? Click OK to confirm.");
+  if (confirmLowerCase) {
+    choice = choice.concat(lowerCase)
   }
 
-  var addUpperCase = confirm("Would you like to include uppercase characters? Click OK to confirm.");
-  if (addUpperCase) {
-    personsChoice = personsChoice.concat(upperCase)
+  var confirmUpperCase = confirm("Would you like to include uppercase characters? Click OK to confirm.");
+  if (confirmUpperCase) {
+    choice = choice.concat(upperCase)
   }
 
-  var addNumbers = confirm("Would you like to include numeric characters? Click OK to confirm.");
-  if (addNumbers) {
-    personsChoice = personsChoice.concat(numbers)
+  var confirmNumbers = confirm("Would you like to include numeric characters? Click OK to confirm.");
+  if (confirmNumbers) {
+    choice = choice.concat(numbers)
   }
 
-  var addSpecialChars = confirm("Would you like to include special characters? Click OK to confirm.");
-  if (addSpecialChars) {
-    personsChoice = personsChoice.concat(specialChars)
+  var confirmSpecialChars = confirm("Would you like to include special characters? Click OK to confirm.");
+  if (confirmSpecialChars) {
+    choice = choice.concat(specialChars)
   }
 
-  console.log("User chooses these characters to use for password: " + personsChoice);
+  console.log("User chooses these characters to use for password: " + choice);
 
 
-  if (personsChoice.length === 0) {
+  if (choice.length === 0) {
     alert("Must select at least one character type")
     return;
   }
