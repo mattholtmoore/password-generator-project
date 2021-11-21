@@ -100,17 +100,17 @@ var specialChars = [
   "~"
 ];
 
-// Given the provided starter code, use function generatePassword()    
+// Given the provided starter code, use function generatePassword() to nest appropriate/applicable content.   
 function generatePassword() {
 
-  // Create applicable variables: array for available characters, string for end result and boolean flags.
+  // Create applicable variables: array for available characters, string for end result and flags for booleans.
   var availableChars = [];
   var endResult = "";
   var lengthFlag = false;
   var choiceFlag = false;
   var checkedFlag = false;
 
-  // Given the provided numeric range, password must be >= 8 and <= 128. Use the while loop (thank you w3schools for that reminder) and set up an alert to notify the individual of set parameters.  
+  // Given the provided numeric range, password must be >= 8 and <= 128. Use while loop and set up an alert to notify user of system set parameters.  
   while (!lengthFlag) {
     var passwordLength = parseInt(
       prompt("How many characters would you like your password to have?")
@@ -130,7 +130,7 @@ function generatePassword() {
     }
   }
 
-  // While user hasn't 
+  // Use while loop conditional expression - choiceFlag for character set.
   while (!choiceFlag) {
     // 
     var confirmLowerCase = confirm("Would you like to include lowercase characters? Click OK to confirm.");
@@ -162,7 +162,7 @@ function generatePassword() {
 
   }
 
-  // Use another while loop for conditional expression and for loop nested within it
+  // Use while loop conditional expression - checkedFlag for length.
   while (!checkedFlag) {
     for (var i = 0; i < passwordLength; i++) {
       var random = Math.floor(Math.random() * availableChars.length);
@@ -183,7 +183,7 @@ function generatePassword() {
 function checkPassword(pw, lower, upper, numb, special) {
   var lowerFlag, upperFlag, numbFlag, specialFlag = false;
 
-  //  If user does not want lowercase characters, lowerFlag variable is set to true in order to ensure that the password doesn't fail because of set preference. For example, if the user only wanted numbers and uppercase characters - we don't want the password to fail because it doesn't have lowercase characters. Repeated for every preference.
+  //  If user does not want lowercase characters, lowerFlag variable is set to true in order to ensure that the password doesn't fail because of set preference. For example, if the user only wanted numbers and uppercase characters - we don't want the password to fail because it doesn't have lowercase characters. Repeat for every preference.
   if (!lower) {
     lowerFlag = true;
   }
@@ -196,6 +196,7 @@ function checkPassword(pw, lower, upper, numb, special) {
   if (!special) {
     specialFlag = true;
   }
+
   // Iterate over the password's characters and check against every array to see which one it is a part of. Set the corresponding flag to true.
   for (var i = 0; i < pw.length; i++) {
     var currentChar = pw[i];
