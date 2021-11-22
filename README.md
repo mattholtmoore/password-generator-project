@@ -1,5 +1,3 @@
-# password-generator-project
-
 # **Password Generator**
 ***
 
